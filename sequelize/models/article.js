@@ -11,9 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.Users,{
+      this.belongsTo(models.User,{
         foreignKey:'user_id',
-        as:'users'
+        as:'user'
       })
       // Article.belongsTo(models.User,{
       //   foreignKey:'user_id',
@@ -37,52 +37,3 @@ module.exports = (sequelize, DataTypes) => {
   });
   return Article;
 };
-
-// 'use strict';
-
-// /** @type {import('sequelize-cli').Migration} */
-// module.exports = {
-//   async up (queryInterface, Sequelize) {
-
-//       await queryInterface.createTable('notes', {
-//          id: {
-//          type:  Sequelize.INTEGER,
-//          primaryKey: true,
-//          allowNull: false,
-//          autoIncrement: true,
-//         },
-//         title:{
-//           type: Sequelize.STRING,
-//           allowNull: false
-//         },
-//         description:{
-//           type: Sequelize.STRING,
-//           allowNull: true,
-//         },
-//         user_id:{
-//           type: Sequelize.INTEGER,
-//           allowNull: false,
-//           unique: true,
-//         },
-//       });
-
-//       await queryInterface.addConstraint('notes',{
-//         type: 'foreign key',
-//         name: 'user_id_notes',
-//         fields:['user_id'],
-//         references:{
-//           table: 'users',
-//           field: 'id'
-//         },
-//         onDelete: 'cascade',
-//         onUpdate: 'cascade'
-//       });
-    
-//   },
-
-//   async down (queryInterface, Sequelize) {
-    
-//     await queryInterface.dropTable('notes');
-    
-//   }
-// };
